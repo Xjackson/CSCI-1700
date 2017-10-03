@@ -1,0 +1,73 @@
+public class Question3 {
+	public static void main(String[] args) {
+		
+		
+		Scanner keyboard = new Scanner(System.in);	
+
+		String operator, change, a, s, d, m; 
+		int n1, n2, n3, n4,numA, numS, numD, numM, deno, denoD, y ;
+		a = "+";
+		s = "-";
+		d = "/";
+		m = "*";
+		do {
+		 
+		
+		System.out.println("Note: Enter a value for a first, then b. Do not include / or other non-integers into your input.");
+		System.out.println("Enter first fraction in a/b form: ");
+		//The system will put the numbers automatically take your input and put it into fractional notation.
+		n1 = keyboard.nextInt();
+		n2 = keyboard.nextInt();
+			if (n2 == 0)
+				do {
+					System.out.println("\"0\" is not allowed for variable b.");
+					System.out.println("Input a value for \"b\" other then 0: ");
+					n2 = keyboard.nextInt();
+				
+				}while(n2==0);
+			System.out.println("Enter operation (+,-,/,*)");
+			operator = keyboard.next();
+			if (!operator.equals("+")&&!operator.equals("-")&&!operator.equals("*")&&!operator.equals("/"))
+				do {
+					System.out.println("INVALID ");
+					System.out.println("Enter valid operator");
+					operator = keyboard.next();
+				}while(!operator.equals("+")&&(!operator.equals("-"))&&(!operator.equals("*"))&&(!operator.equals("/")));
+			System.out.println("Enter second fraction in c/d form: ");
+			n3 = keyboard.nextInt();
+			n4 = keyboard.nextInt();
+			if (n4 == 0)
+				do {
+				System.out.println("\"0\" is not allowed for variable d.");
+				System.out.println("Input a value for \"d\" other then 0: ");
+				n4 = keyboard.nextInt();
+				}while(n4 == 0);
+			deno = (n2 * n4);
+			numA = (n1 * n4) + (n2 * n3);
+			numS = (n1 * n4) - (n2 * n3);
+			numM = (n1 * n3);
+		
+			numD = (n1 * n4);
+			denoD = (n2 * n3);
+		
+		
+		if (a.equals(operator)) 
+			System.out.println(n1 + "/" + n2 + " + " + n3 + "/" + n4 + " is equal to " + numA + "/" + deno);
+		else if (s.equals(operator))
+			System.out.println(n1 + "/" + n2 + " - " + n3 + "/" + n4 + " is equal to " + numS + "/" + deno);
+		else if (operator.equals(d))
+			System.out.println(n1 + "/" + n2 + " / " + n3 + "/" + n4 + " is equal to " + numD + "/" + denoD);
+		else if (operator.equals(m))
+			System.out.println(n1 + "/" + n2 + " * " + n3 + "/" + n4 + " is equal to " + numM + "/" + deno);
+		do
+			{System.out.println("Would you like to continue?" + "\ntype y for Yes and n for No:");
+			change = keyboard.next();
+			if ((!change.equalsIgnoreCase("y"))&&(!change.equalsIgnoreCase("n")))
+				System.out.println("INVALID INPUT");
+			}while(!change.equalsIgnoreCase("n")&&(!change.equalsIgnoreCase("Y")))
+		;
+		
+		}while(change.equalsIgnoreCase("Y"));
+	}	
+	
+}

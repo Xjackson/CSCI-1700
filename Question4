@@ -1,0 +1,28 @@
+package Assign2;
+import java.util.Scanner;
+import java.text.DecimalFormat;
+public class Question4 {
+	public static void main(String[] ars) {
+		
+		Scanner keyboard = new Scanner(System.in);
+		DecimalFormat formatter = new DecimalFormat(".00");
+		double price, years, inflation, percent = 0, y, total, z = 0;
+		System.out.println("Enter cost of the item:");
+		price = keyboard.nextDouble();
+		System.out.println("Enter # of years when the item will be purchased: ");
+		System.out.println("(I.E. how many years will pass when the item is purchased.)");
+		years = keyboard.nextInt();
+		System.out.println("Enter the rate of inflation. (Percentage out of 100)");
+		inflation = keyboard.nextDouble();
+		y = years;
+		percent = (inflation/100) + 1;
+		do
+		{
+			y--;
+			z = price * percent;
+			price = z;
+		}while(y>0);
+		total = price;
+		System.out.printf("The estimated price of the item will be $" + formatter.format(total) + "  after " + years + " year(s).");
+	}
+}

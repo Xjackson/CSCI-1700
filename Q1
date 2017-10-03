@@ -1,0 +1,42 @@
+import java.util.Scanner;
+import java.text.DecimalFormat;
+
+public class Q1 {
+	public static void main(String[] arg) {
+		Scanner keyboard = new Scanner(System.in);
+		DecimalFormat formatter = new DecimalFormat("0.00000");
+		
+		System.out.println("This program will estimate the square root of any number given.");
+		
+		
+		double guess, r, previousGuess;
+		int n;
+		guess = 0;
+		r = 0;
+		
+		System.out.println("Enter a positive number:");
+		n = keyboard.nextInt();
+		
+		if (n<0)
+			do {	
+			System.out.println("System error" + "\nEnter a positive number:");
+			n = keyboard.nextInt();
+			}while (n<0);
+		if (n == 0)
+			System.out.println("The square root of " + n + " is " + formatter.format(n) + ".");
+		guess = n/2.0;
+		
+		if (n>0)
+			do {
+				previousGuess = guess;
+				r = (n/guess);
+				guess = (guess + r)/2.0;
+				System.out.println("Current guess = " + guess);
+			}while(Math.abs(guess - previousGuess) > 0.00001);
+			System.out.println("The absolute value of " + n +" is approximately " + formatter.format(guess));
+		
+			
+			
+		
+	}
+}
